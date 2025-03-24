@@ -4,6 +4,7 @@
 ###
 print("Agenda")
 
+agenda={}
 
 
 class Agenda:
@@ -25,6 +26,26 @@ class Agenda:
         print("Mostrando los contactos")
         for elements in self.contacto:
             print (str(elements))
+    
+    def eliminar_contacto(self):
+        
+        name = input("Introduce el nombre del contacto a a eliminar: ")
+       
+        if name in self.contacto:
+            del self.contacto[name]
+        else:
+            print(f"El contacto {name} no existe.")
+    
+    def buscar_contacto(self):
+
+        name = input("Introduce el nombre del contacto a buscar: ")
+
+        if name in agenda:
+            print(
+                f"El número de teléfono de {name} es {agenda[name]}.")
+        else:
+            print(f"El contacto {name} no existe.")
+
 
 
 agenda = Agenda()
@@ -52,9 +73,9 @@ while True:
         case "2":
             pass
         case "3":
-            pass
+            agenda.eliminar_contacto()
         case "4":
-            pass
+            agenda.buscar_contacto()
         case "5":
             agenda.mostrar_contacto()
         case "6":
